@@ -1,11 +1,10 @@
 export type InputProps = {
     label: string,
     name: string,
-    defaultValue: number,
-    setValue: (number) => void,
+    defaultValue?: string,
     step?: number,
     min?: number,
     max?: number,
-    error: boolean,
-    errorText: string,
+    pattern?: RegExp,
+    errorText: string
 };

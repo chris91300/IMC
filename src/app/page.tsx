@@ -1,7 +1,7 @@
-import Formule from "./components/formule/Formule";
-import TitleH1 from "./components/globals/titleH1/TitleH1";
-import ImcCalculator from "./components/imcCalculator/ImcCalculator";
-import Introduction from "./components/introduction/Introduction";
+import Formule from "./_components/formule/Formule";
+import TitleH1 from "./_components/globals/titleH1/TitleH1";
+import ImcCalculator from "./_components/imcCalculator/ImcCalculator";
+import Introduction from "./_components/introduction/Introduction";
 
 
 export default function Home() {
