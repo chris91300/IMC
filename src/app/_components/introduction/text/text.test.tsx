@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import Introduction from "./Introduction";
+import Introduction from "../Introduction";
 
 
 describe("TEST OF THE COMPONENT INTRODUCTION", () => {
