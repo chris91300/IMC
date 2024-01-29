@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function Text() {
   return (
-    <div>
+    <div className="text-center">
         <p>
           L'<span className='font-bold'>Indice de Masse Corporelle</span> ou IMC ( en anglais, BMI ) est une grandeur qui permet d'estimer la corpulence d'une personne.
         </p>

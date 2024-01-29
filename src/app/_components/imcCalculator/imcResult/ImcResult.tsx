@@ -7,25 +7,37 @@ import Container from '../../globals/container/Container';
 import useAnimations from './hooks/useAnimations';
 import ResultImages from './ResultImages/ResultImages';
 import Imc from './Imc/Imc';
-import config from '@/app/config/config';
+import config from '@/app/_config/config';
+import useScrollIntoView from './hooks/useScrollIntoView';
+import calculateTheDifferenceForNormalWeight from './Imc/utils/calculateTheDifferenceForNormalWeight';
 
 
 export default function ImcResult(props: imcResultPropsType) {
-    const { imc } = props;
+    const { user} = props;
+    const mainContainer = useScrollIntoView();
     const {
       imcAnimated,
       animationForImages,
-      imcAnimation
-    } = useAnimations(config.imcStarter, imc)
+      imcAnimation,
+      imcStatus,
+      incrementationIsOver
+    } = useAnimations(config.imcStarter, user.imc)
     
+    const weightToAchieve = calculateTheDifferenceForNormalWeight(user);
     
  
   return (
-    <div>
+    <div ref={mainContainer}>
         <H2>RÉSULTAT</H2>
-        <Container className="flex justify-around items-center bg-black">
+        <Container className="flex justify-around items-center bg-black w-full sm:w-6/12 m-auto">
           <ResultImages animationForImages={ animationForImages } />
-          <Imc imcAnimated={ imcAnimated } imcAnimation={ imcAnimation }/>
+          <Imc
+            imcAnimated={ imcAnimated }
+            imcAnimation={ imcAnimation }
+            imcStatus={imcStatus}
+            incrementationIsOver={incrementationIsOver}
+            weightToAchieve={weightToAchieve}
+          />
         </Container>
     </div>
   )

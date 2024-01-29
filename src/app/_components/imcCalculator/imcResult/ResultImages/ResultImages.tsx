@@ -1,6 +1,6 @@
 import React from 'react'
 import Container from '@/app/_components/globals/container/Container'
-import { animationForImagesType } from '../imcResultType'
+import { animationForImagesType } from '../imcResult'
 import getAnimatedImages from './utils/getAnimatedImages'
 
 

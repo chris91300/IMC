@@ -5,18 +5,32 @@ import ImcForm from './imcForm/ImcForm';
 import ImcResult from './imcResult/ImcResult';
 import calculImc from './utils/calculImc';
 import H2 from '../globals/headers/h2/H2';
+import config from '@/app/_config/config';
+import { userType } from '@/app/types/types';
 
 
 export default function ImcCalculator() {
 
-  const [ imc, setImc ] = useState(0);
+  const newUser: userType = {
+    tall: Number(config.tallDefaultValue),
+    weight: Number(config.weightDefaultValue),
+    imc: 0
+  }
+
+  const [ user, setUser ] = useState(newUser);
   const [ getResult, setGetResult ] = useState(false)
+  const [ tall, setTall ] = useState(0);
 
   const calculateIMC = (tall: string, weight:string)=>{
     const tallAsNumber = parseFloat(tall);
     const weightAsNumber = parseFloat(weight)
     const imcCalculated = calculImc(tallAsNumber, weightAsNumber)
-    setImc(imcCalculated)
+    setUser( {
+      tall: tallAsNumber,
+      weight: weightAsNumber,
+      imc: imcCalculated
+    } )
+    
     setGetResult(true);
   }
 
@@ -29,7 +43,7 @@ export default function ImcCalculator() {
         <ImcForm
           submit={calculateIMC}
         />
-        { getResult && <ImcResult imc={imc} /> }
+        { getResult && <ImcResult user={ user }/> }
     </section>
   )
 }

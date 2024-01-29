@@ -1,4 +1,4 @@
-import { pipe, test, toString } from "ramda";
+import { pipe } from "ramda";
 import imcWithTenth from "./imcWithTenth";
 import splitEachChar from "./splitEachChar";
 

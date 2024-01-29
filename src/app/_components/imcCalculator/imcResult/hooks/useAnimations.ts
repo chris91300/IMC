@@ -1,7 +1,10 @@
 import { useState } from "react";
-import { animationForImagesType } from '../imcResultType'
+import { animationForImagesType } from '../imcResult'
 import useIncrementImc from "./useIncrementImc";
 import useAnimationForImages from "./useAnimationForImages";
+import { imcStatusType } from "../imcResult";
+import getNumberTrunced from "../../utils/getNumberTrunced";
+import config from "@/app/_config/config";
 
 
 const defaultAnimationForImages: animationForImagesType = {      
@@ -19,16 +22,25 @@ const defaultAnimationForImages: animationForImagesType = {
 
 export default function useAnimations(imcStarter: number, userIMC: number) {
   
+  const defaultImcStatus: imcStatusType = {
+    text: "dénutrition",
+    color: "text-denutrition"
+  }
+    const imcRounded = getNumberTrunced(userIMC, config.totalNumberAfterComma);
     const [ imcAnimated, setImcAnimated ] = useState(imcStarter);
-    const [ animationForImages, setAnimationForImages ] = useState(defaultAnimationForImages as animationForImagesType);
+    const [ animationForImages, setAnimationForImages ] = useState(defaultAnimationForImages);
     const [ imcAnimation, setImcAnimation ] = useState('');
+    const [ imcStatus, setImcStatus ] = useState(defaultImcStatus)
+    const [ incrementationIsOver, setIncrementationIsOver ] = useState(false);
   
-    useIncrementImc(imcAnimated, userIMC, setImcAnimated);
-    useAnimationForImages(imcAnimated, setAnimationForImages, setImcAnimation);
+    useIncrementImc(imcAnimated, imcRounded, setImcAnimated, setIncrementationIsOver);
+    useAnimationForImages(imcAnimated, setAnimationForImages, setImcAnimation, setImcStatus);
 
     return {
       imcAnimated,
       animationForImages,
-      imcAnimation
+      imcAnimation,
+      imcStatus,
+      incrementationIsOver
     }
 }

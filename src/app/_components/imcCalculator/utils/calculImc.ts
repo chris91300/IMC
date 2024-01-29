@@ -1,6 +1,7 @@
-import config from "@/app/config/config";
+import config from "@/app/_config/config";
 
 export default function calculImc(tall: number, weight: number):number {
     const imc = weight / Math.pow(tall, 2);
-    return parseFloat(imc.toFixed(config.totalNumberAfterComma))
+    //const imcRounded = parseFloat(imc.toFixed(config.totalNumberAfterComma))
+    return imc; // test ave juste imc
 }

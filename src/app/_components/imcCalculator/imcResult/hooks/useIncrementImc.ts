@@ -1,5 +1,5 @@
-import { useEffect, SetStateAction } from "react";
-import config from "@/app/config/config";
+import { useEffect, SetStateAction, Dispatch } from "react"; 
+import config from "@/app/_config/config";
 
 const imcIncrement = config.imcIncrement;
 const totalNumberAfterComma = config.totalNumberAfterComma;
@@ -8,15 +8,24 @@ const timeBetweenEachImcIncrementation = config.timeBetweenEachImcIncrementation
 export default function useIncrementImc(
     currentImc: number,
     imc: number,
-    setImc: (value: SetStateAction<number>) => void
+    setImc: (value: SetStateAction<number>) => void,
+    setIncrementationIsOver: Dispatch<SetStateAction<boolean>>
   ){
     useEffect(()=>{
         const incrementImc = setTimeout(()=>{
-          setImc(prevState => (Number((prevState + imcIncrement).toFixed(totalNumberAfterComma)))
-          )       
+          console.log("currentImc = ", currentImc)
+          console.log("imc = ", imc)
+          if(currentImc < imc){
+            console.log("on ajoute : ", (currentImc + imcIncrement))
+            setImc(prevState => ((prevState + imcIncrement))
+          ) 
+          }
+                
         }, timeBetweenEachImcIncrementation);
         
         if(currentImc >= imc){
+          console.log("on stop timeout")
+          setIncrementationIsOver(true);
           return clearTimeout(incrementImc)
         }
         

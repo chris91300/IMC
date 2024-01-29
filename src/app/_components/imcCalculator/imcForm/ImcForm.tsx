@@ -4,7 +4,7 @@ import React, { useRef } from 'react'
 import { imcFormPropsType } from './imcForm';
 import InputNumber from '../../globals/input/InputNumber'
 import { test } from 'ramda';
-import config from '../../../config/config';// modifier dnas packagejson avec @
+import config from '../../../_config/config';// modifier dnas packagejson avec @
 import ImageForm from './imageForm/ImageForm';
 
 
@@ -33,7 +33,10 @@ export default function ImcForm(props: imcFormPropsType) {
   }
 
   return (
-    <form className='flex flex-col items-center gap-5 mb-20'>
+    <form
+      className='flex flex-col items-center gap-5 mb-20'
+      onSubmit={ submitForm }
+    >
       <p>
           Merci de renseigner votre poids et votre taille :
       </p>
@@ -44,8 +47,8 @@ export default function ImcForm(props: imcFormPropsType) {
                 <InputNumber
                   label="Votre poids en kg"
                   name="weight"
-                  step={0.1}
-                  min={0.1}
+                  step={0.01}
+                  min={0.01}
                   max={250}
                   pattern={weightRegex}
                   defaultValue={config.weightDefaultValue}
@@ -68,7 +71,7 @@ export default function ImcForm(props: imcFormPropsType) {
                 ref={inputTall}
               />
               <div className='flex justify-center items-center grow'>
-                <button className='px-6 py-2 border-2 border-black rounded-full hover:font-bold hover:border-3' type="submit" onClick={submitForm}>calculer</button>
+                <button className='px-6 py-2 border-2 border-black rounded-full hover:font-bold hover:border-3' type="submit">calculer</button>
               </div>
             </div>
         </div>

@@ -1,13 +1,13 @@
 
 import { map } from "ramda";
 import getAnimatedImagesBuilder from "./getAnimatedImagesBuilder";
-import config from "../../../../../config/config";
+import config from "../../../../../_config/config";
 import { animationForImagesType } from '../../imcResultType'
 
-const imcRepresentations = config.imcRepresentations;
+const weightStatus = config.weightStatus;
 
 export default function getAnimatedImages(animations: animationForImagesType){
     const buildImages = getAnimatedImagesBuilder(animations);
-    const images = map(buildImages, imcRepresentations);
+    const images = map(buildImages, weightStatus);
     return images;
 }

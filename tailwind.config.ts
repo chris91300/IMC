@@ -27,7 +27,8 @@ const config: Config = {
           moderee: '#f7c53d',
           severe: '#ff9900',
           morbide: '#ff2600'
-        }
+        },
+        wheat: 'wheat'
       },
       boxShadow: {
         'full': '0px 0px 2em'
