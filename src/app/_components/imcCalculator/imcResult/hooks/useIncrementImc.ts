@@ -13,10 +13,7 @@ export default function useIncrementImc(
   ){
     useEffect(()=>{
         const incrementImc = setTimeout(()=>{
-          console.log("currentImc = ", currentImc)
-          console.log("imc = ", imc)
           if(currentImc < imc){
-            console.log("on ajoute : ", (currentImc + imcIncrement))
             setImc(prevState => ((prevState + imcIncrement))
           ) 
           }
@@ -24,7 +21,6 @@ export default function useIncrementImc(
         }, timeBetweenEachImcIncrementation);
         
         if(currentImc >= imc){
-          console.log("on stop timeout")
           setIncrementationIsOver(true);
           return clearTimeout(incrementImc)
         }

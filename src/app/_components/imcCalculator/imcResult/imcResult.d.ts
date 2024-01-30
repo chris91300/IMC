@@ -20,3 +20,11 @@ export type animationForImagesType = {
     "dénutrition": string
   
   }
+
+export type imcProps = {
+    imcAnimated: number,
+    imcAnimation: string,
+    imcStatus: imcStatusType,
+    incrementationIsOver: boolean,
+    weightToAchieve: number
+}
