@@ -13,7 +13,7 @@ import calculateTheDifferenceForNormalWeight from './Imc/utils/calculateTheDiffe
 
 
 export default function ImcResult(props: imcResultPropsType) {
-    const { user} = props;
+    const { user, restart } = props;
     const mainContainer = useScrollIntoView();
     const {
       imcAnimated,
@@ -25,19 +25,24 @@ export default function ImcResult(props: imcResultPropsType) {
     
     const weightToAchieve = calculateTheDifferenceForNormalWeight(user);
     
- 
+    //  bg-black RETIRER AU PREMIER CONTAINER
   return (
     <div ref={mainContainer}>
         <H2>RÉSULTAT</H2>
-        <Container className="flex justify-around items-center bg-black w-full sm:w-6/12 m-auto">
+        <Container className="flex justify-around items-center w-full sm:w-6/12 m-auto p-1">
           <ResultImages animationForImages={ animationForImages } />
-          <Imc
-            imcAnimated={ imcAnimated }
-            imcAnimation={ imcAnimation }
-            imcStatus={imcStatus}
-            incrementationIsOver={incrementationIsOver}
-            weightToAchieve={weightToAchieve}
-          />
+          <Container className="flex flex-col items-center">
+            <Imc
+              imcAnimated={ imcAnimated }
+              imcAnimation={ imcAnimation }
+              imcStatus={imcStatus}
+              incrementationIsOver={incrementationIsOver}
+              weightToAchieve={weightToAchieve}
+            />
+            <button className='text-wheat px-6 py-2 border-2 border-wheat rounded-full' onClick={ restart }>
+              recommencer
+            </button>
+          </Container>
         </Container>
     </div>
   )

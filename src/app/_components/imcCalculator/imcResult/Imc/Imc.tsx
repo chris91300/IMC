@@ -15,7 +15,7 @@ import Advice from './advice/Advice';
 export default function Imc({ imcAnimated, imcAnimation, imcStatus, incrementationIsOver, weightToAchieve }: imcProps) { 
 
   return (
-    <Container className='flex flex-col items-center gap-4'>
+    <Container className='flex flex-col items-center gap-4 m-5'>
       <Presentation />
       <ImcSplitted
         imcAnimated={ imcAnimated }

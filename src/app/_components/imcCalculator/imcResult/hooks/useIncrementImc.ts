@@ -2,7 +2,7 @@ import { useEffect, SetStateAction, Dispatch } from "react";
 import config from "@/app/_config/config";
 
 const imcIncrement = config.imcIncrement;
-const totalNumberAfterComma = config.totalNumberAfterComma;
+//const totalNumberAfterComma = config.totalNumberAfterComma;
 const timeBetweenEachImcIncrementation = config.timeBetweenEachImcIncrementation;
 
 export default function useIncrementImc(

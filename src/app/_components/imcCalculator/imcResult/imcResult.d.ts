@@ -1,7 +1,8 @@
 import { userType } from "@/app/types/types"
 
 export type imcResultPropsType = {
-    user: userType
+    user: userType,
+    restart: ()=>void
 }
 
 export type imcStatusType = {

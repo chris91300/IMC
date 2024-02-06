@@ -1,8 +1,8 @@
 import React from 'react'
-import Ten from '../Ten';
-import Unit from '../Unit';
-import Comma from '../Comma';
-import Tenth from '../Tenth';
+import Ten from './Ten';
+import Unit from './Unit';
+import Comma from './Comma';
+import Tenth from './Tenth';
 import getImcSplitted from '../utils/getImcSplitted';
 
 export default function ImcSplitted({ imcAnimated, imcAnimation }: { imcAnimated: number, imcAnimation: string }) {

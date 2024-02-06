@@ -6,12 +6,12 @@ import InputNumber from '../../globals/input/InputNumber'
 import { test } from 'ramda';
 import config from '../../../_config/config';// modifier dnas packagejson avec @
 import ImageForm from './imageForm/ImageForm';
+import Submit from './Submit';
 
 
 export default function ImcForm(props: imcFormPropsType) {
-  const {
-    submit } = props;
-
+  const { blockSubmit, submit } = props;
+  console.log("blockSubmit => ", blockSubmit)
 
   const inputTall = useRef<HTMLInputElement>({} as HTMLInputElement)
   const inputWeight = useRef<HTMLInputElement>({} as HTMLInputElement)
@@ -71,7 +71,7 @@ export default function ImcForm(props: imcFormPropsType) {
                 ref={inputTall}
               />
               <div className='flex justify-center items-center grow'>
-                <button className='px-6 py-2 border-2 border-black rounded-full hover:font-bold hover:border-3' type="submit">calculer</button>
+                <Submit disabled={blockSubmit} >calculer</Submit>
               </div>
             </div>
         </div>

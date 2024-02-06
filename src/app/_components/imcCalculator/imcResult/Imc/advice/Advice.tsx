@@ -1,14 +1,14 @@
 import config from '@/app/_config/config'
 import React from 'react'
 import { adviceType } from './advice';
+import getAdvice from './getAdvice';
 
 
-export default function Advice({ weight,imcStatus}: adviceType){
+export default function Advice({ weight, imcStatus }: adviceType){
     
-    const needToGainWeight = (imcStatus === 'dénutrition' || imcStatus === 'maigreur');
-    const advice = needToGainWeight ? config.weightToGainText(weight) : config.weightToLooseText(weight);
+    const advice = getAdvice( weight, imcStatus );
 
   return (
-    <p className='text-wheat'>{advice}</p>
+    <p className='text-wheat'>{ advice }</p>
   )
 }
