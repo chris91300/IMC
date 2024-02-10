@@ -9,7 +9,7 @@ export default function ImcSplitted({ imcAnimated, imcAnimation }: { imcAnimated
     const [ten, unit, comma, tenth] = getImcSplitted(imcAnimated);
 
   return (
-    <p className={`flex items-center justify-center w-20 h-20 border border-denutrition rounded-full shadow-full text-denutrition shadow-denutrition ${imcAnimation}`}>
+    <p className={`flex items-center justify-center w-20 h-20 m-3 border border-denutrition rounded-full shadow-full text-denutrition shadow-denutrition ${imcAnimation}`}>
           <Ten ten={ten} />
           <Unit unit={unit} />
           <Comma />

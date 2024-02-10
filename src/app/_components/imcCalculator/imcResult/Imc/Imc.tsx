@@ -16,7 +16,7 @@ export default function Imc({ imcAnimated, imcAnimation, imcStatus, incrementati
 
   return (
     <Container className='flex flex-col items-center gap-4 m-5'>
-      <Presentation />
+      
       <ImcSplitted
         imcAnimated={ imcAnimated }
         imcAnimation={ imcAnimation }
@@ -27,13 +27,11 @@ export default function Imc({ imcAnimated, imcAnimation, imcStatus, incrementati
         imcStatus={ imcStatus }
       />
       {
-        incrementationIsOver ?
+        incrementationIsOver &&
           <Advice
             weight={weightToAchieve}
             imcStatus={imcStatus.text}
-          />
-        :
-          null
+          />        
       }
     </Container>
   )

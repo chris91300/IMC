@@ -9,6 +9,6 @@ export default function Advice({ weight, imcStatus }: adviceType){
     const advice = getAdvice( weight, imcStatus );
 
   return (
-    <p className='text-wheat'>{ advice }</p>
+    <p className='dark:text-wheat'>{ advice }</p>
   )
 }

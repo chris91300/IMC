@@ -2,7 +2,7 @@
 import { map } from "ramda";
 import getAnimatedImagesBuilder from "./getAnimatedImagesBuilder";
 import config from "../../../../../_config/config";
-import { animationForImagesType } from '../../imcResultType'
+import { animationForImagesType } from '../../imcResult'
 
 const weightStatus = config.weightStatus;
 

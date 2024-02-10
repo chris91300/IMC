@@ -4,14 +4,13 @@ import React, { useRef } from 'react'
 import { imcFormPropsType } from './imcForm';
 import InputNumber from '../../globals/input/InputNumber'
 import { test } from 'ramda';
-import config from '../../../_config/config';// modifier dnas packagejson avec @
+import config from '../../../_config/config';
 import ImageForm from './imageForm/ImageForm';
 import Submit from './Submit';
 
 
 export default function ImcForm(props: imcFormPropsType) {
   const { blockSubmit, submit } = props;
-  console.log("blockSubmit => ", blockSubmit)
 
   const inputTall = useRef<HTMLInputElement>({} as HTMLInputElement)
   const inputWeight = useRef<HTMLInputElement>({} as HTMLInputElement)

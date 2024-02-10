@@ -1,7 +1,7 @@
 
 import Image from 'next/image';
 import formateWordForPath from './formateWordForPath'
-import { animationForImagesType } from '../../imcResultType';
+import { animationForImagesType } from '../../imcResult';
 
 export default function getAnimatedImagesBuilder(animations: animationForImagesType){
 

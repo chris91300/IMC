@@ -40,8 +40,8 @@ const InputNumber = forwardRef<HTMLInputElement, InputProps>( function InputNumb
 
 
     return (
-        <div className="flex flex-col justify-center p-2 w-40">
-            <label htmlFor={name}>
+        <div className="flex flex-col justify-center p-2 w-40 dark:text-black">
+            <label htmlFor={name} className='dark:text-white'>
                 {label}
             </label>
             <input

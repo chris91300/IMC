@@ -28,8 +28,8 @@ export default function ImcResult(props: imcResultPropsType) {
     //  bg-black RETIRER AU PREMIER CONTAINER
   return (
     <div ref={mainContainer}>
-        <H2>RÉSULTAT</H2>
-        <Container className="flex justify-around items-center w-full sm:w-6/12 m-auto p-1">
+        <H2>VOTRE IMC EST DE :</H2>
+        <Container className="flex justify-around items-center w-full sm:w-6/12 max-w-md m-auto p-1">
           <ResultImages animationForImages={ animationForImages } />
           <Container className="flex flex-col items-center">
             <Imc
@@ -39,9 +39,9 @@ export default function ImcResult(props: imcResultPropsType) {
               incrementationIsOver={incrementationIsOver}
               weightToAchieve={weightToAchieve}
             />
-            <button className='text-wheat px-6 py-2 border-2 border-wheat rounded-full' onClick={ restart }>
+            {incrementationIsOver && <button className=' px-6 py-2 border-2 border-black rounded-full hover:font-bold hover:border-3 dark:text-wheat dark:border-wheat' onClick={ restart }>
               recommencer
-            </button>
+            </button>}
           </Container>
         </Container>
     </div>

@@ -18,15 +18,16 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      colors: {
-        denutrition: '#61edf9',
-        maigreur: '#62f7b9',
-        poidsNormal: '#59f776',
-        surpoids: '#bbff00',
+      colors: {// les couleurs sont ok pour bg white and black
+        //            bg blanc    bg noir     nom couleur si blanc
+        denutrition: '#0797B9',//'#61edf9', new -> cyan
+        maigreur: '#0D9B8A',//'#62f7b9', new -> teal
+        poidsNormal: '#2B9A66',//'#59f776', new -> green
+        surpoids: '#EF5F00',//'#bbff00', -> orange
         obesite: {
-          moderee: '#f7c53d',
-          severe: '#ff9900',
-          morbide: '#ff2600'
+          moderee: '#CF3897',//'#f7c53d', new -> pink
+          severe: '#DC3B5D',//'#ff9900', new -> ruby
+          morbide: '#FF0000',//'#ff2600' new -> red11
         },
         wheat: 'wheat'
       },
