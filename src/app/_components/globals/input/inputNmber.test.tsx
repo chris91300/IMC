@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import React from 'react'
 import userEvent from "@testing-library/user-event";
-import config from "../../imcCalculator/utils/config";
+import config from "@/app/_config/config";
 import InputNumber from "./InputNumber";
 
 
