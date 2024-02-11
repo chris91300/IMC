@@ -9,7 +9,7 @@ export default function Button(props: ButtonProps) {
         disabled = false,
         children,
     } = props;
-    const className = `p-2 my-2 mx-auto rounded-xl font-bold border border-[wheat] text-[wheat] ${extendClassName}`;
+    const className = `px-6 py-2 border-2 border-black rounded-full hover:font-bold hover:border-3 dark:text-wheat dark:border-wheat ${extendClassName}`;
 
     return (
         <button

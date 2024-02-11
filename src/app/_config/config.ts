@@ -1,4 +1,4 @@
-import { configType } from "../types/types";
+import { configType } from "../_types/types";
 
 
 const config: configType = {    

@@ -1,5 +1,5 @@
 
-import { userType } from "@/app/types/types";
+import { userType } from "@/app/_types/types";
 import getNumberTrunced from "../../../utils/getNumberTrunced";
 import { gt, lt, multiply, pipe, subtract } from "ramda";
 import numberFixedBy2 from "./numberFixedBy2";

@@ -1,4 +1,4 @@
-import { userType } from "@/app/types/types"
+import { userType } from "@/app/_types/types"
 
 export type imcResultPropsType = {
     user: userType,

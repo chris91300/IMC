@@ -12,6 +12,6 @@ describe("TEST OF BUTTON COMPONENT", () => {
         expect(button).toBeInTheDocument();
 
         await user.click(button);
-        expect(onClick).toBeCalledTimes(1);
+        expect(onClick).toHaveBeenCalledTimes(1);
     });
 });

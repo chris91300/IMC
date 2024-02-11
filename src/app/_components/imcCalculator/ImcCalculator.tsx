@@ -6,7 +6,9 @@ import ImcResult from './imcResult/ImcResult';
 import calculImc from './utils/calculImc';
 import H2 from '../globals/headers/h2/H2';
 import config from '@/app/_config/config';
-import { userType } from '@/app/types/types';
+import { userType } from '@/app/_types/types';
+import { ErrorBoundary } from "react-error-boundary";
+import Error from '../globals/error/Error';
 
 //  LE RESTART FONCTIONNE. VOIR POUR FAIR EL'ANIMATION
 export default function ImcCalculator() {
@@ -21,7 +23,6 @@ export default function ImcCalculator() {
   const [ getResult, setGetResult ] = useState(false);
 
   const calculateIMC = (tall: string, weight:string)=>{
-    console.log("user click on submit")
     const tallAsNumber = parseFloat(tall);
     const weightAsNumber = parseFloat(weight)
     const imcCalculated = calculImc(tallAsNumber, weightAsNumber)
@@ -44,11 +45,13 @@ export default function ImcCalculator() {
         <H2>
             Calculer votre IMC
         </H2>
-        <ImcForm
-          blockSubmit={ getResult } 
-          submit={calculateIMC}
-        />
-        { getResult && <ImcResult user={ user } restart={ restart }/> }
+        <ErrorBoundary fallback={<Error />}>
+          <ImcForm
+            blockSubmit={ getResult } 
+            submit={calculateIMC}
+          />
+          { getResult && <ImcResult user={ user } restart={ restart }/> }
+        </ErrorBoundary>
     </section>
   )
 }

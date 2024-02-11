@@ -10,6 +10,7 @@ import Imc from './Imc/Imc';
 import config from '@/app/_config/config';
 import useScrollIntoView from './hooks/useScrollIntoView';
 import calculateTheDifferenceForNormalWeight from './Imc/utils/calculateTheDifferenceForNormalWeight';
+import Button from '../../globals/button/Button';
 
 
 export default function ImcResult(props: imcResultPropsType) {
@@ -25,7 +26,7 @@ export default function ImcResult(props: imcResultPropsType) {
     
     const weightToAchieve = calculateTheDifferenceForNormalWeight(user);
     
-    //  bg-black RETIRER AU PREMIER CONTAINER
+    
   return (
     <div ref={mainContainer}>
         <H2>VOTRE IMC EST DE :</H2>
@@ -39,9 +40,9 @@ export default function ImcResult(props: imcResultPropsType) {
               incrementationIsOver={incrementationIsOver}
               weightToAchieve={weightToAchieve}
             />
-            {incrementationIsOver && <button className=' px-6 py-2 border-2 border-black rounded-full hover:font-bold hover:border-3 dark:text-wheat dark:border-wheat' onClick={ restart }>
+            {incrementationIsOver && <Button title='recalculer un nouvel imc' onClick={ restart }>
               recommencer
-            </button>}
+            </Button>}
           </Container>
         </Container>
     </div>

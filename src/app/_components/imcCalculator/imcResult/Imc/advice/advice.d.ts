@@ -1,4 +1,4 @@
-import { weightStatus } from '@/app/types/types'
+import { weightStatus } from '@/app/_types/types'
 
 export type adviceType = {
     weight: number,

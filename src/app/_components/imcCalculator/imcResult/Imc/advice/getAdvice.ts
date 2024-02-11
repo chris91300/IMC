@@ -1,4 +1,4 @@
-import { weightStatus } from "@/app/types/types";
+import { weightStatus } from "@/app/_types/types";
 import config from "@/app/_config/config";
 
 
