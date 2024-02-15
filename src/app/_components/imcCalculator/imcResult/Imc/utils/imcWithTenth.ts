@@ -1,6 +1,5 @@
 import { toString } from "ramda";
 
-//TODO: modif +,0 par tofixed(1)
-const imcWithTenth = (imc: number) => Number.isInteger(imc) ? toString(imc)+',0' : toString(imc);
-
-export default imcWithTenth;
+export default function imcWithTenth(imc: number) {
+    return Number.isInteger(imc) ? imc.toFixed(1) : toString(imc);
+}
