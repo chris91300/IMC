@@ -5,7 +5,7 @@ describe("TEST OF LOGO COMPONENT", () => {
     it("should rener the logo", () => {
         render(<Logo />);
 
-        const logo = screen.getByText("IMC")
+        const logo = screen.getByText("IMC");
         expect(logo).toBeInTheDocument();
     });
 });

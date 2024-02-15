@@ -5,7 +5,7 @@ describe("TEST OF HEADER COMPONENT", () => {
     it("should display the logo and the portofolio link", async () => {
         render(<Header />);
 
-        const logo = screen.getByText("IMC")
+        const logo = screen.getByText("IMC");
         const link = screen.getByRole("link", { name: "portfolio" });
 
         expect(logo).toBeInTheDocument();

@@ -1,5 +1,5 @@
-import React from 'react'
+import React from "react";
 
 export default function Comma() {
-  return <span>,</span>
+    return <span>,</span>;
 }

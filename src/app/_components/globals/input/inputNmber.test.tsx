@@ -1,14 +1,12 @@
 import { render, screen } from "@testing-library/react";
-import React from 'react'
+import React from "react";
 import userEvent from "@testing-library/user-event";
 import config from "@/app/_config/config";
 import InputNumber from "./InputNumber";
 
-
-
 describe("TEST OF BUTTON COMPONENT", () => {
     it("should display defaultValue", () => {
-        const ref = React.createRef<HTMLInputElement>()
+        const ref = React.createRef<HTMLInputElement>();
         render(
             <InputNumber
                 label="Votre poids en kg"
@@ -24,7 +22,9 @@ describe("TEST OF BUTTON COMPONENT", () => {
         );
 
         const numberDefaultValue = Number(config.weightDefaultValue);
-        const input = screen.getByRole("spinbutton", {name: "Votre poids en kg"});
+        const input = screen.getByRole("spinbutton", {
+            name: "Votre poids en kg",
+        });
         expect(input).toBeInTheDocument();
         expect(input).toHaveValue(numberDefaultValue);
     });
@@ -32,7 +32,7 @@ describe("TEST OF BUTTON COMPONENT", () => {
     it("should change the value of the input", async () => {
         const user = userEvent.setup();
 
-        const ref = React.createRef<HTMLInputElement>()
+        const ref = React.createRef<HTMLInputElement>();
         render(
             <InputNumber
                 label="Votre poids en kg"
@@ -47,21 +47,22 @@ describe("TEST OF BUTTON COMPONENT", () => {
             />
         );
 
-        const input = screen.getByRole("spinbutton", {name: "Votre poids en kg"});
+        const input = screen.getByRole("spinbutton", {
+            name: "Votre poids en kg",
+        });
 
-        await user.tripleClick(input)
-        await user.keyboard("80")
+        await user.tripleClick(input);
+        await user.keyboard("80");
 
-        const errorText = screen.queryByText(config.weightErrorText)
+        const errorText = screen.queryByText(config.weightErrorText);
         expect(input).toHaveValue(80);
-        expect(errorText).not.toBeInTheDocument()
-
+        expect(errorText).not.toBeInTheDocument();
     });
 
     it("should display the error text", async () => {
         const user = userEvent.setup();
 
-        const ref = React.createRef<HTMLInputElement>()
+        const ref = React.createRef<HTMLInputElement>();
         render(
             <InputNumber
                 label="Votre poids en kg"
@@ -76,14 +77,15 @@ describe("TEST OF BUTTON COMPONENT", () => {
             />
         );
 
-        const input = screen.getByRole("spinbutton", {name: "Votre poids en kg"});
+        const input = screen.getByRole("spinbutton", {
+            name: "Votre poids en kg",
+        });
 
-        await user.tripleClick(input)
-        await user.keyboard("80000")
+        await user.tripleClick(input);
+        await user.keyboard("80000");
 
-        const errorText = screen.queryByText(config.weightErrorText)
+        const errorText = screen.queryByText(config.weightErrorText);
         expect(input).toHaveValue(80000);
-        expect(errorText).toBeInTheDocument()
-
+        expect(errorText).toBeInTheDocument();
     });
 });

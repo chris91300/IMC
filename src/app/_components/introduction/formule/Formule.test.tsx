@@ -1,8 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import Formule from "./Formule";
 
-
-describe('TEST OF THE COMPONENT FORMULE', () => {
+describe("TEST OF THE COMPONENT FORMULE", () => {
     it("should display the BMI formula", () => {
         render(<Formule />);
 
@@ -12,10 +11,10 @@ describe('TEST OF THE COMPONENT FORMULE', () => {
         const sup = screen.getByText(/2/);
         const secondSub = screen.getByText(/\(m\)/);
 
-        expect(firstPart).toBeInTheDocument()
-        expect(firstSub).toBeInTheDocument()
-        expect(secondPart).toBeInTheDocument()
-        expect(sup).toBeInTheDocument()
-        expect(secondSub).toBeInTheDocument()
-    })
-})
+        expect(firstPart).toBeInTheDocument();
+        expect(firstSub).toBeInTheDocument();
+        expect(secondPart).toBeInTheDocument();
+        expect(sup).toBeInTheDocument();
+        expect(secondSub).toBeInTheDocument();
+    });
+});

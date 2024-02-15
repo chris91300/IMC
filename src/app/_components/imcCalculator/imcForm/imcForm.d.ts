@@ -1,4 +1,4 @@
-export type imcFormPropsType = {    
-    blockSubmit: boolean,
-    submit: (a:string, b:string)=>void
-}
+export type imcFormPropsType = {
+    blockSubmit: boolean;
+    submit: (a: string, b: string) => void;
+};
