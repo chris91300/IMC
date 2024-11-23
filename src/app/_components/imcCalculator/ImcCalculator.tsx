@@ -9,6 +9,8 @@ import config from "@/app/_config/config";
 import { userType } from "@/app/_types/types";
 import { ErrorBoundary } from "react-error-boundary";
 import Error from "../globals/error/Error";
+import { useDialogStore } from "../dialog/store/useDialogStore";
+import Dialog from "../dialog/Dialog";
 
 export default function ImcCalculator() {
     const newUser: userType = {
@@ -19,18 +21,25 @@ export default function ImcCalculator() {
 
     const [user, setUser] = useState(newUser);
     const [getResult, setGetResult] = useState(false);
+    const { dialogIsVisible, showDialog } = useDialogStore();
 
     const calculateIMC = (tall: string, weight: string) => {
         const tallAsNumber = parseFloat(tall);
         const weightAsNumber = parseFloat(weight);
         const imcCalculated = calculImc(tallAsNumber, weightAsNumber);
-        setUser({
-            tall: tallAsNumber,
-            weight: weightAsNumber,
-            imc: imcCalculated,
-        });
+        if (imcCalculated <= 60) {
+            setUser({
+                tall: tallAsNumber,
+                weight: weightAsNumber,
+                imc: imcCalculated,
+            });
 
-        setGetResult(true);
+            setGetResult(true);
+        } else {
+            showDialog(
+                "IMC supérieur à 60. Merci de donner des valeurs réalistes."
+            );
+        }
     };
 
     const restart = () => {
@@ -44,6 +53,7 @@ export default function ImcCalculator() {
                 <ImcForm blockSubmit={getResult} submit={calculateIMC} />
                 {getResult && <ImcResult user={user} restart={restart} />}
             </ErrorBoundary>
+            {dialogIsVisible && <Dialog />}
         </section>
     );
 }
